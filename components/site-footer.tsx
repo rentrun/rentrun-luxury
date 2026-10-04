@@ -30,7 +30,9 @@ export function SiteFooter() {
               <li><Link href="/luxury-cars">Luxury Cars</Link></li>
               <li><Link href="/private-charter">Private Charter</Link></li>
               <li><Link href="/luxury-cruises">Luxury Cruises</Link></li>
-              <li><Link href="/corporate-luxury-transport">Corporate</Link></li>
+              <li><Link href="/corporate">Corporate</Link></li>
+              <li><Link href="/weddings">Weddings</Link></li>
+              <li><Link href="/concierge">Concierge</Link></li>
               <li><Link href="/contact">Contact Us</Link></li>
             </ul>
           </div>

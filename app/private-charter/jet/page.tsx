@@ -20,7 +20,7 @@ export default function PrivateJetPage() {
           subtitle="Private jet arrangements designed for urgent executive schedules, destination arrivals and premium business movement."
           image="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1600&q=80"
           primaryLabel="Request Charter Quote"
-          primaryHref="/contact"
+          primaryHref="/private-charter#enquiry"
           secondaryLabel="WhatsApp"
           secondaryHref="https://wa.me/917703956880?text=Hello%20RentRun%20Luxury%2C%20I%20need%20a%20private%20jet%20charter%20quote."
         />

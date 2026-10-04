@@ -38,6 +38,18 @@ export function SiteHeader() {
           </a>
         </div>
       </div>
+      <details className="group border-t border-white/10 md:hidden">
+        <summary className="mx-auto max-w-7xl cursor-pointer list-none px-4 py-3 text-xs uppercase tracking-[0.2em] text-[#f0d7a5] sm:px-6">
+          Menu <span aria-hidden="true" className="float-right">+</span>
+        </summary>
+        <nav aria-label="Mobile navigation" className="grid gap-1 border-t border-white/10 bg-[#090909] px-4 py-3 sm:px-6">
+          {navigation.map((item) => (
+            <Link key={item.href} href={item.href} className="py-2 text-sm text-[#e7dfd2] transition hover:text-[#f0d7a5]">
+              {item.label}
+            </Link>
+          ))}
+        </nav>
+      </details>
     </header>
   );
 }

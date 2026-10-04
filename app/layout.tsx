@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { company } from "@/data/site-data";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -42,12 +43,14 @@ export const metadata: Metadata = {
     siteName: "RentRun Luxury",
     locale: "en_IN",
     type: "website",
+    images: ["https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=85"],
   },
   twitter: {
     card: "summary_large_image",
     title: "RentRun Luxury",
     description:
       "Premium cars, private charter and curated cruise experiences arranged around you.",
+    images: ["https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=85"],
   },
   alternates: {
     canonical: "/",
@@ -55,9 +58,26 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: company.name,
+    parentOrganization: { "@type": "Organization", name: company.parent },
+    url: "https://luxury.rentrun.in",
+    description: "Luxury mobility, private journeys and exceptional experiences curated through a network of verified service partners.",
+    email: company.emailPrimary,
+    contactPoint: [
+      { "@type": "ContactPoint", telephone: `+91${company.phonePrimary}`, contactType: "customer service", availableLanguage: ["English", "Hindi"] },
+      { "@type": "ContactPoint", telephone: `+91${company.phoneSecondary}`, contactType: "customer service", availableLanguage: ["English", "Hindi"] },
+    ],
+  };
+
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full bg-[#090909] text-[#f5efe6]">{children}</body>
+      <body className="min-h-full bg-[#090909] text-[#f5efe6]">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
+        {children}
+      </body>
     </html>
   );
 }

@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { PageHero } from "@/components/page-hero";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { EnquiryForm } from "@/components/enquiry-form";
-import { luxuryFleet } from "@/data/site-data";
+import { company, luxuryVehicles } from "@/data/site-data";
 
 export const metadata: Metadata = {
   title: "Luxury Car Rental with Chauffeur | RentRun Luxury",
@@ -22,7 +23,7 @@ export default function LuxuryCarsPage() {
           eyebrow="Luxury Cars"
           title="Arrive in Luxury."
           subtitle="Premium chauffeur-driven vehicles and executive mobility experiences curated for business travel, family journeys and memorable arrivals."
-          image="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80"
+          image="/images/luxury-cars/mercedes-e-class/hero.webp"
           primaryLabel="Explore Luxury Cars"
           primaryHref="#fleet"
           secondaryLabel="Request a Quote"
@@ -32,59 +33,44 @@ export default function LuxuryCarsPage() {
         <section id="fleet" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <div className="mb-12 text-center">
             <p className="text-xs uppercase tracking-[0.38em] text-[#d4af75]">Curated Fleet</p>
-            <h2 className="mt-5 text-3xl text-white sm:text-4xl">Subject to availability.</h2>
+            <h2 className="mt-5 text-3xl text-white sm:text-4xl">A considered collection of vehicles.</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-[#d9d1c5]">Availability subject to city, date and vehicle confirmation.</p>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-2">
-            {luxuryFleet.map((car) => (
-              <article key={car.category} className="overflow-hidden rounded-[2rem] border border-white/10 bg-[#101010]">
-                <img src={car.image} alt={car.category} className="h-72 w-full object-cover" />
-                <div className="p-6">
-                  <div className="flex items-center justify-between gap-4">
-                    <h3 className="text-2xl text-white">{car.category}</h3>
-                    <span className="text-xs uppercase tracking-[0.26em] text-[#d4af75]">Subject to availability</span>
-                  </div>
-                  <div className="mt-5 grid gap-3 text-sm text-[#e7dfd2] sm:grid-cols-2">
-                    <div><span className="text-[#d4af75]">Seating:</span> {car.seating}</div>
-                    <div><span className="text-[#d4af75]">Chauffeur:</span> {car.chauffeur}</div>
-                    <div><span className="text-[#d4af75]">Luggage:</span> {car.luggage}</div>
-                    <div><span className="text-[#d4af75]">Category:</span> Premium</div>
-                  </div>
-                  <ul className="mt-5 space-y-2 text-[#e7dfd2]">
-                    {car.features.map((feature) => (
-                      <li key={feature} className="flex items-center gap-3"><span className="h-2 w-2 rounded-full bg-[#d4af75]" />{feature}</li>
-                    ))}
-                  </ul>
-                  <div className="mt-6 flex gap-4">
-                    <Link href="/contact" className="rounded-full bg-[#d4af75] px-5 py-3 text-xs font-medium uppercase tracking-[0.25em] text-[#090909]">
-                      Request Quote
-                    </Link>
-                  </div>
+          <div className="space-y-16">
+            {[...new Set(luxuryVehicles.map((car) => car.category))].map((category) => (
+              <section key={category} aria-label={category}>
+                <h3 className="mb-6 border-b border-white/10 pb-4 text-xl text-white">{category}</h3>
+                <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                  {luxuryVehicles.filter((car) => car.category === category).map((car) => (
+                    <article key={car.slug} className="overflow-hidden border border-white/10 bg-[#101010]">
+                      <Link href={`/luxury-cars/${car.slug}`} className="group relative block aspect-[16/10] overflow-hidden">
+                        <Image src={car.heroImage} alt={`${car.name} exterior`} fill sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw" className="object-cover transition duration-700 group-hover:scale-105" />
+                      </Link>
+                      <div className="p-5">
+                        <p className="text-xs uppercase tracking-[0.2em] text-[#d4af75]">{car.category}</p>
+                        <h4 className="mt-2 text-xl text-white">{car.name}</h4>
+                        <ul className="mt-4 space-y-1 text-sm text-[#d9d1c5]">{car.features.map((feature) => <li key={feature}>{feature}</li>)}</ul>
+                        <dl className="mt-5 space-y-2 text-sm text-[#e7dfd2]">
+                          <div className="flex justify-between gap-3"><dt className="text-[#b7aa96]">Passengers</dt><dd>{car.seatingCapacity}</dd></div>
+                          {car.category === "LUXURY MPV / EXECUTIVE VAN" ? <>
+                            <div className="flex justify-between gap-3"><dt className="text-[#b7aa96]">Chauffeur</dt><dd>{car.chauffeurStatus}</dd></div>
+                            <div className="flex justify-between gap-3"><dt className="text-[#b7aa96]">City availability</dt><dd>{car.cityAvailabilityLabel}</dd></div>
+                          </> : null}
+                          <div className="flex justify-between gap-3"><dt className="text-[#b7aa96]">Price</dt><dd>{car.priceType}</dd></div>
+                        </dl>
+                        <p className="mt-3 text-xs text-[#b7aa96]">{car.availability}</p>
+                        <div className="mt-5 flex flex-wrap gap-3 text-xs uppercase tracking-[0.12em]">
+                          <Link href={`/luxury-cars/${car.slug}`} className="border border-[#d4af75]/60 px-3 py-2 text-[#f0d7a5]">View Vehicle</Link>
+                          <Link href="/contact#enquiry" className="bg-[#d4af75] px-3 py-2 text-[#090909]">Request Quote</Link>
+                          <a href={`https://wa.me/91${company.whatsapp}?text=${encodeURIComponent(`Hello RentRun Luxury, please check availability for ${car.name}.`)}`} className="border border-white/20 px-3 py-2 text-white">WhatsApp Concierge</a>
+                        </div>
+                      </div>
+                    </article>
+                  ))}
                 </div>
-              </article>
+              </section>
             ))}
-          </div>
-        </section>
-
-        <section className="border-y border-white/10 bg-[#101010]">
-          <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-            <div className="grid gap-8 lg:grid-cols-3">
-              {[
-                "Luxury Sedan",
-                "Premium Sedan",
-                "Luxury SUV",
-                "Premium SUV",
-                "Executive MPV",
-                "Luxury Van",
-                "Airport Transfer",
-                "Corporate Mobility",
-                "Wedding Cars",
-              ].map((option) => (
-                <div key={option} className="rounded-2xl border border-white/10 bg-[#121212] p-5 text-[#f5efe6]">
-                  {option}
-                </div>
-              ))}
-            </div>
           </div>
         </section>
 

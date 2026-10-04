@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { ReactNode } from "react";
 
@@ -24,12 +25,11 @@ export function PageHero({
   secondaryHref,
   children,
 }: PageHeroProps) {
+  const secondaryIsExternal = secondaryHref?.startsWith("http") ?? false;
+
   return (
     <section className="relative overflow-hidden border-b border-white/10 bg-[#101010]">
-      <div
-        className="absolute inset-0 bg-cover bg-center opacity-35"
-        style={{ backgroundImage: `url(${image})` }}
-      />
+      <Image src={image} alt={`${eyebrow} luxury travel experience`} fill priority sizes="100vw" className="object-cover object-center opacity-35" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(212,175,117,0.18),transparent_35%),linear-gradient(90deg,rgba(9,9,9,0.9),rgba(9,9,9,0.45),rgba(9,9,9,0.8))]" />
 
       <div className="relative mx-auto grid max-w-7xl gap-8 px-4 py-20 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:px-8 lg:py-28">
@@ -43,9 +43,15 @@ export function PageHero({
               {primaryLabel}
             </Link>
             {secondaryLabel && secondaryHref ? (
-              <Link href={secondaryHref} className="rounded-full border border-[#d4af75]/60 bg-transparent px-6 py-3 text-xs font-medium uppercase tracking-[0.25em] text-[#f5efe6] transition hover:bg-[#d4af75]/10">
-                {secondaryLabel}
-              </Link>
+              secondaryIsExternal ? (
+                <a href={secondaryHref} target="_blank" rel="noreferrer" className="rounded-full border border-[#d4af75]/60 bg-transparent px-6 py-3 text-xs font-medium uppercase tracking-[0.25em] text-[#f5efe6] transition hover:bg-[#d4af75]/10">
+                  {secondaryLabel}
+                </a>
+              ) : (
+                <Link href={secondaryHref} className="rounded-full border border-[#d4af75]/60 bg-transparent px-6 py-3 text-xs font-medium uppercase tracking-[0.25em] text-[#f5efe6] transition hover:bg-[#d4af75]/10">
+                  {secondaryLabel}
+                </Link>
+              )
             ) : null}
           </div>
 
