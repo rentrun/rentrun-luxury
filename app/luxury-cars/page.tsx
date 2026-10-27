@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { PageHero } from "@/components/page-hero";
@@ -6,13 +5,14 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { company, luxuryVehicles } from "@/data/site-data";
+import { createPageMetadata } from "@/lib/seo-metadata";
 
-export const metadata: Metadata = {
-  title: "Luxury Car Rental with Chauffeur | RentRun Luxury",
-  description:
-    "Luxury car rental with chauffeur, premium sedan and SUV options, executive transfers, and premium airport mobility curated by RentRun Luxury.",
-  alternates: { canonical: "/luxury-cars" },
-};
+export const metadata = createPageMetadata(
+  "Luxury Car Rental with Chauffeur | RentRun Luxury",
+  "Luxury car rental with chauffeur, premium sedan and SUV options, executive transfers, and premium airport mobility curated by RentRun Luxury.",
+  "/luxury-cars",
+  "/images/luxury-cars/mercedes-e-class/hero.webp",
+);
 
 export default function LuxuryCarsPage() {
   return (
@@ -21,7 +21,7 @@ export default function LuxuryCarsPage() {
       <main className="bg-[#090909] text-[#f5efe6]">
         <PageHero
           eyebrow="Luxury Cars"
-          title="Arrive in Luxury."
+          title="Chauffeur-Driven Luxury Cars"
           subtitle="Premium chauffeur-driven vehicles and executive mobility experiences curated for business travel, family journeys and memorable arrivals."
           image="/images/luxury-cars/mercedes-e-class/hero.webp"
           primaryLabel="Explore Luxury Cars"
@@ -35,6 +35,12 @@ export default function LuxuryCarsPage() {
             <p className="text-xs uppercase tracking-[0.38em] text-[#d4af75]">Curated Fleet</p>
             <h2 className="mt-5 text-3xl text-white sm:text-4xl">A considered collection of vehicles.</h2>
             <p className="mx-auto mt-4 max-w-2xl text-[#d9d1c5]">Availability subject to city, date and vehicle confirmation.</p>
+            <p className="mx-auto mt-5 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm text-[#f0d7a5]">
+              <Link href="/luxury-cars/chauffeur-service">Chauffeur service</Link>
+              <Link href="/luxury-cars/airport-transfer">Airport transfers</Link>
+              <Link href="/luxury-cars/corporate">Corporate car service</Link>
+              <Link href="/luxury-cars/wedding">Wedding cars</Link>
+            </p>
           </div>
 
           <div className="space-y-16">

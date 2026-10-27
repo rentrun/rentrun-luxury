@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo-metadata";
 import { PageHero } from "@/components/page-hero";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { EnquiryForm } from "@/components/enquiry-form";
 
-export const metadata: Metadata = {
-  title: "Wedding Luxury Transport | RentRun Luxury",
-  description:
-    "Wedding luxury transportation, guest transfers and premium event mobility for destination weddings, hotel movement and VIP arrivals.",
-  alternates: { canonical: "/wedding-luxury-transport" },
-};
+export const metadata = createPageMetadata(
+  "Wedding Luxury Transport | RentRun Luxury",
+  "Wedding luxury transportation, guest transfers and premium event mobility for destination weddings, hotel movement and VIP arrivals.",
+  "/wedding-luxury-transport",
+);
 
 export default function WeddingLuxuryTransportPage() {
   return (

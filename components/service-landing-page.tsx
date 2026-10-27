@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { PageHero } from "@/components/page-hero";
 import { SiteFooter } from "@/components/site-footer";
@@ -11,9 +12,10 @@ type ServiceLandingPageProps = {
   image: string;
   services: string[];
   cta: string;
+  relatedLinks?: { href: string; label: string }[];
 };
 
-export function ServiceLandingPage({ eyebrow, title, description, image, services, cta }: ServiceLandingPageProps) {
+export function ServiceLandingPage({ eyebrow, title, description, image, services, cta, relatedLinks }: ServiceLandingPageProps) {
   return (
     <>
       <SiteHeader />
@@ -35,6 +37,11 @@ export function ServiceLandingPage({ eyebrow, title, description, image, service
             {services.map((service) => <li key={service} className="border-b border-white/10 pb-4">{service}</li>)}
           </ul>
           <p className="mt-8 max-w-3xl text-sm leading-7 text-[#b7aa96]">RentRun Luxury curates premium travel and mobility experiences through its network of verified service partners. Vehicle, aircraft, yacht and service availability may vary by city, operator and date.</p>
+          {relatedLinks?.length ? (
+            <nav aria-label="Related services" className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-[#f0d7a5]">
+              {relatedLinks.map((link) => <Link key={link.href} href={link.href} className="underline">{link.label}</Link>)}
+            </nav>
+          ) : null}
         </section>
         <section id="enquiry" className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
           <EnquiryForm />

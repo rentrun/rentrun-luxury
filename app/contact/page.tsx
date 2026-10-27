@@ -1,16 +1,15 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo-metadata";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { PageHero } from "@/components/page-hero";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { company } from "@/data/site-data";
 
-export const metadata: Metadata = {
-  title: "Contact RentRun Luxury | Request a Private Quote",
-  description:
-    "Speak with the RentRun Luxury concierge for premium chauffeur service, charter arrangements and curated cruise experiences. Subject to availability.",
-  alternates: { canonical: "/contact" },
-};
+export const metadata = createPageMetadata(
+  "Contact RentRun Luxury | Request a Private Quote",
+  "Speak with the RentRun Luxury concierge for premium chauffeur service, charter arrangements and curated cruise experiences. Subject to availability.",
+  "/contact",
+);
 
 export default function ContactPage() {
   return (

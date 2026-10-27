@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { AircraftImagePlaceholder, CharterEnquiryButton, CharterEnquirySection } from "@/components/private-charter-tools";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { charterAircraft } from "@/data/private-charter";
+import { createPageMetadata } from "@/lib/seo-metadata";
 
 type CharterPageProps = { params: Promise<{ slug: string }> };
 
@@ -12,16 +12,16 @@ export function generateStaticParams() {
   return charterAircraft.map((aircraft) => ({ slug: aircraft.slug }));
 }
 
-export async function generateMetadata({ params }: CharterPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: CharterPageProps) {
   const { slug } = await params;
   const aircraft = charterAircraft.find((item) => item.slug === slug);
   const title = aircraft?.name ?? "Private Charter";
-  return {
-    title: `${title} Charter | RentRun Luxury`,
-    description: `Explore the ${title} and request a private charter quote.`,
-    alternates: { canonical: `/private-charter/${slug}` },
-    ...(aircraft?.heroImage ? { openGraph: { images: [aircraft.heroImage] } } : {}),
-  };
+  return createPageMetadata(
+    `${title} Charter | RentRun Luxury`,
+    `Explore the ${title} and request a private charter quote.`,
+    `/private-charter/${slug}`,
+    aircraft?.heroImage,
+  );
 }
 
 export default async function CharterDetailPage({ params }: CharterPageProps) {

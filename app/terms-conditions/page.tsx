@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo-metadata";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
-export const metadata: Metadata = {
-  title: "Terms & Conditions | RentRun Luxury",
-  description: "Terms and conditions for RentRun Luxury services.",
-  alternates: { canonical: "/terms-conditions" },
-};
+export const metadata = createPageMetadata(
+  "Terms & Conditions | RentRun Luxury",
+  "Terms and conditions for RentRun Luxury services.",
+  "/terms-conditions",
+);
 
 export default function TermsConditionsPage() {
   return (

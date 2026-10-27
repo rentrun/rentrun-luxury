@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo-metadata";
 import Link from "next/link";
 import { PageHero } from "@/components/page-hero";
 import { CharterEnquirySection } from "@/components/private-charter-tools";
@@ -6,11 +6,11 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { helicopterServices } from "@/data/private-charter";
 
-export const metadata: Metadata = {
-  title: "Helicopter Charter | RentRun Luxury",
-  description: "Helicopter charter arranged for business, airport transfers, events, leisure journeys and specialist aerial requirements.",
-  alternates: { canonical: "/private-charter/helicopter" },
-};
+export const metadata = createPageMetadata(
+  "Helicopter Charter | RentRun Luxury",
+  "Helicopter charter arranged for business, airport transfers, events, leisure journeys and specialist aerial requirements.",
+  "/private-charter/helicopter",
+);
 
 export default function HelicopterPage() {
   return (
@@ -19,7 +19,7 @@ export default function HelicopterPage() {
       <main className="bg-[#090909] text-[#f5efe6]">
         <PageHero
           eyebrow="Helicopter Charter"
-          title="A different way to reach your destination."
+          title="Helicopter Charter Arranged for Your Route"
           subtitle="Helicopter charter arranged around your route, occasion and timing, with aircraft and availability confirmed by the operating partner."
           image="https://images.unsplash.com/photo-1517479149777-5f3b1511d5ad?auto=format&fit=crop&w=1600&q=80"
           primaryLabel="Request Helicopter Charter"

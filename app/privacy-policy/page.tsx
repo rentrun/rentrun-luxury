@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo-metadata";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy | RentRun Luxury",
-  description: "Privacy policy for RentRun Luxury.",
-  alternates: { canonical: "/privacy-policy" },
-};
+export const metadata = createPageMetadata(
+  "Privacy Policy | RentRun Luxury",
+  "Privacy policy for RentRun Luxury.",
+  "/privacy-policy",
+);
 
 export default function PrivacyPolicyPage() {
   return (

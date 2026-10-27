@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo-metadata";
 import { ServiceLandingPage } from "@/components/service-landing-page";
 
-export const metadata: Metadata = {
-  title: "Luxury Travel & Mobility Concierge | RentRun Luxury",
-  description: "A personal concierge for premium vehicle sourcing, chauffeur arrangements, airport assistance, private charter, cruise planning and multi-city mobility.",
-  alternates: { canonical: "/concierge" },
-};
+export const metadata = createPageMetadata(
+  "Luxury Travel & Mobility Concierge | RentRun Luxury",
+  "A personal concierge for premium vehicle sourcing, chauffeur arrangements, airport assistance, private charter, cruise planning and multi-city mobility.",
+  "/concierge",
+);
 
 export default function ConciergePage() {
   return <ServiceLandingPage

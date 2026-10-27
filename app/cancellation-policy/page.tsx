@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo-metadata";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
-export const metadata: Metadata = {
-  title: "Cancellation Policy | RentRun Luxury",
-  description: "Cancellation policy for RentRun Luxury bookings.",
-  alternates: { canonical: "/cancellation-policy" },
-};
+export const metadata = createPageMetadata(
+  "Cancellation Policy | RentRun Luxury",
+  "Cancellation policy for RentRun Luxury bookings.",
+  "/cancellation-policy",
+);
 
 export default function CancellationPolicyPage() {
   return (

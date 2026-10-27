@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo-metadata";
 import { PageHero } from "@/components/page-hero";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { EnquiryForm } from "@/components/enquiry-form";
 
-export const metadata: Metadata = {
-  title: "VIP Transportation | RentRun Luxury",
-  description:
-    "VIP transportation, discreet mobility and executive chauffeur solutions for private bookings, celebrity arrivals and important guest movements.",
-  alternates: { canonical: "/vip-transportation" },
-};
+export const metadata = createPageMetadata(
+  "VIP Transportation | RentRun Luxury",
+  "VIP transportation, discreet mobility and executive chauffeur solutions for private bookings, celebrity arrivals and important guest movements.",
+  "/vip-transportation",
+);
 
 export default function VipTransportationPage() {
   return (

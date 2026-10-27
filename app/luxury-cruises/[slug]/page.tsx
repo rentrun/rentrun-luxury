@@ -6,6 +6,7 @@ import { EnquiryForm } from "@/components/enquiry-form";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { cordeliaExperiences, cordeliaShips, cordeliaSailings } from "@/data/site-data";
+import { createPageMetadata } from "@/lib/seo-metadata";
 
 type CordeliaPageProps = { params: Promise<{ slug: string }> };
 const brandSlug = "cordelia-cruises";
@@ -19,10 +20,14 @@ export async function generateMetadata({ params }: CordeliaPageProps): Promise<M
   const ship = cordeliaShips.find((item) => item.slug === slug);
   if (slug !== brandSlug && !ship) return { title: "Cruise | RentRun Luxury" };
   return {
-    title: "Luxury Cruise | RentRun Luxury",
-    description: "Explore curated luxury cruise experiences, sailing routes, onboard experiences and cabin categories.",
-    alternates: { canonical: `/luxury-cruises/${slug}` },
-    openGraph: { images: [ship?.heroImage ?? cordeliaShips[0].heroImage] },
+    ...createPageMetadata(
+      ship ? `${ship.name} Cruise Experience | RentRun Luxury` : "Luxury Cruise Experiences | RentRun Luxury",
+      ship
+        ? `Explore ${ship.name} cruise experiences, sailing routes and cabin categories, subject to sailing availability and confirmation.`
+        : "Explore curated luxury cruise experiences, sailing routes, onboard experiences and cabin categories.",
+      `/luxury-cruises/${slug}`,
+      ship?.heroImage ?? cordeliaShips[0].heroImage,
+    ),
     robots: { index: false, follow: false },
   };
 }

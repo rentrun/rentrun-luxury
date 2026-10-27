@@ -6,6 +6,7 @@ import { EnquiryForm } from "@/components/enquiry-form";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { company, luxuryVehicles } from "@/data/site-data";
+import { createPageMetadata } from "@/lib/seo-metadata";
 
 type VehiclePageProps = { params: Promise<{ slug: string }> };
 
@@ -17,12 +18,12 @@ export async function generateMetadata({ params }: VehiclePageProps): Promise<Me
   const { slug } = await params;
   const vehicle = luxuryVehicles.find((item) => item.slug === slug);
   if (!vehicle) return { title: "Luxury Vehicle | RentRun Luxury" };
-  return {
-    title: `${vehicle.name} Chauffeur Service | RentRun Luxury`,
-    description: `${vehicle.name} chauffeur-driven service with availability subject to city, date and vehicle confirmation. Request a quote.`,
-    alternates: { canonical: `/luxury-cars/${vehicle.slug}` },
-    openGraph: { images: [vehicle.heroImage] },
-  };
+  return createPageMetadata(
+    `${vehicle.name} Chauffeur Service | RentRun Luxury`,
+    `${vehicle.name} chauffeur-driven service with availability subject to city, date and vehicle confirmation. Request a quote.`,
+    `/luxury-cars/${vehicle.slug}`,
+    vehicle.heroImage,
+  );
 }
 
 export default async function VehicleDetailPage({ params }: VehiclePageProps) {

@@ -1,16 +1,16 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo-metadata";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { CruiseCatalog } from "@/components/cruise-catalog";
 import { PageHero } from "@/components/page-hero";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
-export const metadata: Metadata = {
-  title: "Luxury Cruises in India | RentRun Luxury",
-  description:
-    "Discover curated luxury cruise experiences, premium cruise journeys and handpicked sailing options from India.",
-  alternates: { canonical: "/luxury-cruises" },
-};
+export const metadata = createPageMetadata(
+  "Luxury Cruises in India | RentRun Luxury",
+  "Discover curated luxury cruise experiences, premium cruise journeys and handpicked sailing options from India.",
+  "/luxury-cruises",
+  "/images/cruises/cordelia-empress-exterior.jpg",
+);
 
 export default function LuxuryCruisesPage() {
   return (
@@ -19,7 +19,7 @@ export default function LuxuryCruisesPage() {
       <main className="bg-[#090909] text-[#f5efe6]">
         <PageHero
           eyebrow="Private Cruise Concierge"
-          title="Curated Luxury Cruise Experiences"
+          title="Luxury Cruise Experiences from India"
           subtitle="Premium cruise journeys, handpicked around your preferred departure, destination and travel dates."
           image="/images/cruises/cordelia-empress-exterior.jpg"
           primaryLabel="Explore Cruises"

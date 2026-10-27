@@ -1,17 +1,16 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { createPageMetadata } from "@/lib/seo-metadata";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { company, destinationList, experienceCards, services } from "@/data/site-data";
 
-export const metadata: Metadata = {
-  title: "RentRun Luxury | Luxury Cars, Private Charter & Luxury Cruises",
-  description:
-    "Premium chauffeur-driven mobility, private charter and exceptional luxury cruise experiences curated around the way you travel.",
-  alternates: { canonical: "/" },
-};
+export const metadata = createPageMetadata(
+  "RentRun Luxury | Luxury Cars, Private Charter & Luxury Cruises",
+  "Premium chauffeur-driven mobility, private charter and exceptional luxury cruise experiences curated around the way you travel.",
+  "/",
+);
 
 export default function HomePage() {
   return (

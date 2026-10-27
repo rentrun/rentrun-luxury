@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
+import { createPageMetadata } from "@/lib/seo-metadata";
 import { PageHero } from "@/components/page-hero";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { EnquiryForm } from "@/components/enquiry-form";
 
-export const metadata: Metadata = {
-  title: "Corporate Luxury Transportation | RentRun Luxury",
-  description:
-    "Corporate luxury transportation with executive airport transfers, group mobility and hotel-to-terminal movement curated for business travel and delegations.",
-  alternates: { canonical: "/corporate-luxury-transport" },
-};
+export const metadata = createPageMetadata(
+  "Corporate Luxury Transportation | RentRun Luxury",
+  "Corporate luxury transportation with executive airport transfers, group mobility and hotel-to-terminal movement curated for business travel and delegations.",
+  "/corporate-luxury-transport",
+);
 
 export default function CorporateLuxuryTransportPage() {
   return (
