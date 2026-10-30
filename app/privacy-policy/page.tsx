@@ -12,8 +12,8 @@ export default function PrivacyPolicyPage() {
   return (
     <>
       <SiteHeader />
-      <main className="mx-auto max-w-4xl px-4 py-20 text-[#171717] sm:px-6 lg:px-8">
-        <h1 className="text-4xl text-white">Privacy Policy</h1>
+      <main className="mx-auto max-w-4xl px-4 py-12 text-[#14283F] sm:px-6 lg:px-8">
+        <h1 className="text-4xl text-[#14283F]">Privacy Policy</h1>
         <p className="mt-6 leading-8">
           RentRun Luxury respects the privacy of our clients and visitors. We gather contact information only to respond to enquiries and curate the relevant travel experience. This information is used solely to provide support, arrange bookings, or respond to service requests on a need-to-know basis.
         </p>

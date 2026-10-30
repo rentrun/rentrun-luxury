@@ -1,4 +1,5 @@
 import { createPageMetadata } from "@/lib/seo-metadata";
+import { FaqSection } from "@/components/faq-section";
 import { PageHero } from "@/components/page-hero";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -14,7 +15,7 @@ export default function VipTransportationPage() {
   return (
     <>
       <SiteHeader />
-      <main className="bg-[#171717] text-[#171717]">
+      <main className="bg-white text-[#14283F]">
         <PageHero
           eyebrow="VIP Transport"
           title="Private Movement. Personalised Service."
@@ -26,7 +27,7 @@ export default function VipTransportationPage() {
           secondaryHref="https://wa.me/917703956880?text=Hello%20RentRun%20Luxury%2C%20I%20need%20VIP%20transport%20support."
         />
 
-        <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="grid gap-8 md:grid-cols-2">
             {[
               "Airport arrivals and departures",
@@ -36,14 +37,24 @@ export default function VipTransportationPage() {
               "Senior leadership movements",
               "Guest handling and coordination",
             ].map((item) => (
-              <div key={item} className="rounded-2xl border border-white/10 bg-[#FFFFFF] p-6 text-[#171717]">
+              <div key={item} className="rounded-2xl border border-[#E7E1D6] bg-[#FFFFFF] p-6 text-[#14283F]">
                 {item}
               </div>
             ))}
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
+        <FaqSection
+          title="VIP transportation questions"
+          items={[
+            { question: "What types of journeys can RentRun Luxury arrange?", answer: "Requests can include airport arrivals and departures, hotel movement, executive meetings, private events and coordinated guest transportation through the service partner network." },
+            { question: "How far in advance should I enquire?", answer: "Advance notice is recommended because vehicle type, chauffeur support and dates depend on partner availability. Urgent requests may also be submitted for review." },
+            { question: "Is any vehicle guaranteed by category?", answer: "No. Vehicle and aircraft availability is confirmed after the itinerary and requirements are reviewed. The quotation will clearly identify the proposed arrangement." },
+            { question: "Can multiple guests or movements be coordinated?", answer: "Yes. Share the complete itinerary, locations, passenger groups and timing so the concierge can propose an appropriate arrangement." },
+          ]}
+        />
+
+        <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
           <EnquiryForm />
         </section>
       </main>

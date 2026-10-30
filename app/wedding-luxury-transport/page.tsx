@@ -8,13 +8,15 @@ export const metadata = createPageMetadata(
   "Wedding Luxury Transport | RentRun Luxury",
   "Wedding luxury transportation, guest transfers and premium event mobility for destination weddings, hotel movement and VIP arrivals.",
   "/wedding-luxury-transport",
+  null,
+  "/weddings",
 );
 
 export default function WeddingLuxuryTransportPage() {
   return (
     <>
       <SiteHeader />
-      <main className="bg-[#171717] text-[#171717]">
+      <main className="bg-white text-[#14283F]">
         <PageHero
           eyebrow="Weddings"
           title="Make Every Arrival Unforgettable."
@@ -26,7 +28,7 @@ export default function WeddingLuxuryTransportPage() {
           secondaryHref="https://wa.me/917703956880?text=Hello%20RentRun%20Luxury%2C%20I%20need%20support%20for%20wedding%20transportation."
         />
 
-        <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
             {[
               "Wedding luxury cars",
@@ -38,14 +40,14 @@ export default function WeddingLuxuryTransportPage() {
               "Premium group transfers",
               "Cruise and charter experiences",
             ].map((item) => (
-              <div key={item} className="rounded-2xl border border-white/10 bg-[#FFFFFF] p-6 text-[#171717]">
+              <div key={item} className="rounded-2xl border border-[#E7E1D6] bg-[#FFFFFF] p-6 text-[#14283F]">
                 {item}
               </div>
             ))}
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
           <EnquiryForm />
         </section>
       </main>

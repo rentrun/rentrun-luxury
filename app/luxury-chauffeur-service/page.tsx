@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { LuxuryChauffeurEnquiry } from "@/components/luxury-chauffeur-enquiry";
 import { PageHero } from "@/components/page-hero";
 import { SiteFooter } from "@/components/site-footer";
@@ -27,14 +28,6 @@ export default function LuxuryChauffeurServicePage() {
   const vehicleSlugs = ["mercedes-e-class", "mercedes-v-class", "toyota-vellfire"];
   const vehicles = luxuryVehicles.filter((vehicle) => vehicleSlugs.includes(vehicle.slug));
   const whatsappMessage = encodeURIComponent("Hello RentRun Luxury, I would like a personalised quote for luxury chauffeur service in Delhi NCR.");
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://luxury.rentrun.in/" },
-      { "@type": "ListItem", position: 2, name: "Luxury Chauffeur Service", item: "https://luxury.rentrun.in/luxury-chauffeur-service" },
-    ],
-  };
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -44,13 +37,35 @@ export default function LuxuryChauffeurServicePage() {
     serviceType: "Chauffeur-driven luxury car rental",
     url: "https://luxury.rentrun.in/luxury-chauffeur-service",
   };
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "Which services can I enquire about?",
+        acceptedAnswer: { "@type": "Answer", text: "You can request airport transfers, corporate chauffeur service, wedding transportation, hotel transfers, executive travel and private chauffeur-driven journeys." },
+      },
+      {
+        "@type": "Question",
+        name: "Is vehicle availability guaranteed?",
+        acceptedAnswer: { "@type": "Answer", text: "No. Vehicle and service availability must be checked for your requested city, date, route and itinerary before booking." },
+      },
+      {
+        "@type": "Question",
+        name: "How do I receive a quote?",
+        acceptedAnswer: { "@type": "Answer", text: "Submit the enquiry form or use WhatsApp. The team will review your requirements and respond with options and a personalised quotation when available." },
+      },
+    ],
+  };
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema).replace(/</g, "\\u003c") }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema).replace(/</g, "\\u003c") }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, "\\u003c") }} />
       <SiteHeader />
-      <main className="bg-[#171717] text-[#171717]">
+      <main className="bg-white text-[#14283F]">
+        <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Luxury Chauffeur Service" }]} />
         <PageHero
           eyebrow="Delhi NCR • Chauffeur-Driven Luxury Travel"
           title="Luxury Chauffeur-Driven Car Rental in Delhi NCR"
@@ -62,52 +77,52 @@ export default function LuxuryChauffeurServicePage() {
           secondaryHref={`https://wa.me/91${company.whatsapp}?text=${whatsappMessage}`}
         />
 
-        <section aria-label="Service highlights" className="border-b border-white/10 bg-[#FFFFFF]">
+        <section aria-label="Service highlights" className="border-b border-[#E7E1D6] bg-[#FFFFFF]">
           <div className="mx-auto grid max-w-7xl gap-px px-4 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
             {["Airport and hotel transfers", "Corporate and executive travel", "Weddings and special occasions", "Personal and private journeys"].map((item) => (
-              <p key={item} className="border-b border-white/10 py-5 text-sm text-[#171717] lg:border-b-0 lg:border-r lg:px-6 lg:last:border-r-0">{item}</p>
+              <p key={item} className="border-b border-[#E7E1D6] py-5 text-sm text-[#14283F] lg:border-b-0 lg:border-r lg:px-6 lg:last:border-r-0">{item}</p>
             ))}
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <div className="mb-12 max-w-3xl">
-            <p className="text-xs uppercase tracking-[0.38em] text-[#EC167A]">Your Journey, Your Requirements</p>
-            <h2 className="mt-5 text-3xl text-white sm:text-4xl">Luxury chauffeur services for every occasion</h2>
+        <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="mb-8 max-w-3xl">
+            <p className="text-xs uppercase tracking-[0.38em] text-[#657384]">Your Journey, Your Requirements</p>
+            <h2 className="mt-5 text-3xl text-[#14283F] sm:text-4xl">Luxury chauffeur services for every occasion</h2>
           </div>
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
-              <article key={service.title} className="flex min-h-64 flex-col rounded-[1.5rem] border border-white/10 bg-[#FFFFFF] p-7">
-                <span className="h-px w-12 bg-[#EC167A]" />
-                <h3 className="mt-6 text-xl text-white">{service.title}</h3>
-                <p className="mt-3 flex-1 text-sm leading-7 text-[#4D4D4D]">{service.text}</p>
-                <Link href={service.href} className="mt-6 text-xs font-medium uppercase tracking-[0.18em] text-[#EC167A] underline decoration-[#EC167A]/40 underline-offset-4">Enquire about this service</Link>
+              <article key={service.title} className="flex min-h-64 flex-col rounded-[1.5rem] border border-[#E7E1D6] bg-[#FFFFFF] p-7">
+                <span className="h-px w-12 bg-[#14283F]" />
+                <h3 className="mt-6 text-xl text-[#14283F]">{service.title}</h3>
+                <p className="mt-3 flex-1 text-sm leading-7 text-[#14283F]">{service.text}</p>
+                <Link href={service.href} className="mt-6 text-xs font-medium uppercase tracking-[0.18em] text-[#657384] underline decoration-[#C5A46D]/40 underline-offset-4">Enquire about this service</Link>
               </article>
             ))}
           </div>
         </section>
 
-        <section className="border-y border-white/10 bg-[#FFFFFF]">
-          <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-            <div className="mb-12 text-center">
-              <p className="text-xs uppercase tracking-[0.38em] text-[#EC167A]">Vehicle Selection</p>
-              <h2 className="mt-5 text-3xl text-white sm:text-4xl">Explore luxury vehicle categories</h2>
-              <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#4D4D4D]">Models shown are from the existing RentRun Luxury vehicle catalogue. Availability and quotations are confirmed only after enquiry.</p>
+        <section className="border-y border-[#E7E1D6] bg-[#FFFFFF]">
+          <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+            <div className="mb-8 text-center">
+              <p className="text-xs uppercase tracking-[0.38em] text-[#657384]">Vehicle Selection</p>
+              <h2 className="mt-5 text-3xl text-[#14283F] sm:text-4xl">Explore luxury vehicle categories</h2>
+              <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#14283F]">Models shown are from the existing RentRun Luxury vehicle catalogue. Availability and quotations are confirmed only after enquiry.</p>
             </div>
             <div className="grid gap-6 md:grid-cols-3">
               {vehicles.map((vehicle) => (
-                <article key={vehicle.slug} className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#171717]">
+                <article key={vehicle.slug} className="overflow-hidden rounded-[1.5rem] border border-[#E7E1D6] bg-white">
                   <Link href={`/luxury-cars/${vehicle.slug}`} className="relative block aspect-[16/10] overflow-hidden">
                     <Image src={vehicle.heroImage} alt={`${vehicle.name} chauffeur-driven luxury vehicle`} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover transition duration-700 hover:scale-105" />
                   </Link>
                   <div className="p-6">
-                    <p className="text-xs uppercase tracking-[0.2em] text-[#EC167A]">{vehicle.category}</p>
-                    <h3 className="mt-2 text-xl text-white">{vehicle.name}</h3>
-                    <p className="mt-4 text-sm text-[#4D4D4D]">{vehicle.seatingCapacity}</p>
-                    <p className="mt-2 text-xs leading-6 text-[#4D4D4D]">Availability subject to city, date and vehicle confirmation.</p>
+                    <p className="text-xs uppercase tracking-[0.2em] text-[#657384]">{vehicle.category}</p>
+                    <h3 className="mt-2 text-xl text-[#14283F]">{vehicle.name}</h3>
+                    <p className="mt-4 text-sm text-[#14283F]">{vehicle.seatingCapacity}</p>
+                    <p className="mt-2 text-xs leading-6 text-[#14283F]">Availability subject to city, date and vehicle confirmation.</p>
                     <div className="mt-5 flex flex-wrap gap-3 text-xs uppercase tracking-[0.12em]">
-                      <Link href={`/luxury-cars/${vehicle.slug}`} className="border border-[#EC167A]/60 px-3 py-2 text-[#EC167A]">View Vehicle</Link>
-                      <Link href="#enquiry" className="bg-[#EC167A] px-3 py-2 text-[#171717]">Check Availability</Link>
+                      <Link href={`/luxury-cars/${vehicle.slug}`} className="border border-[#C5A46D]/60 px-3 py-2 text-[#657384]">View Vehicle</Link>
+                      <Link href="#enquiry" className="bg-[#14283F] px-3 py-2 text-white">Check Availability</Link>
                     </div>
                   </div>
                 </article>
@@ -116,27 +131,27 @@ export default function LuxuryChauffeurServicePage() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr]">
+        <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
-              <p className="text-xs uppercase tracking-[0.38em] text-[#EC167A]">Why RentRun Luxury</p>
-              <h2 className="mt-5 text-3xl text-white sm:text-4xl">A concierge-led travel arrangement</h2>
-              <p className="mt-5 leading-7 text-[#4D4D4D]">RentRun Luxury coordinates chauffeur-driven mobility through a partner network. Each request is handled individually, with vehicle selection, itinerary details and availability confirmed before booking.</p>
-              <ul className="mt-8 space-y-4 text-sm text-[#171717]">
-                {["Personalised travel arrangements", "Chauffeur-driven vehicle selection by enquiry", "Assistance for corporate and special-event journeys", "Availability and quotation confirmed before booking", "Partnership-based vehicle coordination"].map((item) => <li key={item} className="border-b border-white/10 pb-4">{item}</li>)}
+              <p className="text-xs uppercase tracking-[0.38em] text-[#657384]">Why RentRun Luxury</p>
+              <h2 className="mt-5 text-3xl text-[#14283F] sm:text-4xl">A concierge-led travel arrangement</h2>
+              <p className="mt-5 leading-7 text-[#14283F]">RentRun Luxury coordinates chauffeur-driven mobility through a partner network. Each request is handled individually, with vehicle selection, itinerary details and availability confirmed before booking.</p>
+              <ul className="mt-8 space-y-4 text-sm text-[#14283F]">
+                {["Personalised travel arrangements", "Chauffeur-driven vehicle selection by enquiry", "Assistance for corporate and special-event journeys", "Availability and quotation confirmed before booking", "Partnership-based vehicle coordination"].map((item) => <li key={item} className="border-b border-[#E7E1D6] pb-4">{item}</li>)}
               </ul>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-[0.38em] text-[#EC167A]">How It Works</p>
+              <p className="text-xs uppercase tracking-[0.38em] text-[#657384]">How It Works</p>
               <div className="mt-8 grid gap-4">
                 {[
                   ["01", "Share your requirements", "Tell us your pickup, destination, date, timing and passenger details."],
                   ["02", "Receive a personalised quote", "The team checks requested requirements, availability and pricing."],
                   ["03", "Confirm your booking", "Review the details and terms, then confirm after the arrangement is agreed."],
                 ].map(([number, title, text]) => (
-                  <article key={number} className="grid grid-cols-[3rem_1fr] gap-4 rounded-[1.5rem] border border-white/10 bg-[#FFFFFF] p-6">
-                    <span className="text-sm tracking-[0.2em] text-[#EC167A]">{number}</span>
-                    <div><h3 className="text-xl text-white">{title}</h3><p className="mt-2 text-sm leading-7 text-[#4D4D4D]">{text}</p></div>
+                  <article key={number} className="grid grid-cols-[3rem_1fr] gap-4 rounded-[1.5rem] border border-[#E7E1D6] bg-[#FFFFFF] p-6">
+                    <span className="text-sm tracking-[0.2em] text-[#657384]">{number}</span>
+                    <div><h3 className="text-xl text-[#14283F]">{title}</h3><p className="mt-2 text-sm leading-7 text-[#14283F]">{text}</p></div>
                   </article>
                 ))}
               </div>
@@ -144,30 +159,30 @@ export default function LuxuryChauffeurServicePage() {
           </div>
         </section>
 
-        <section id="enquiry" className="scroll-mt-28 border-y border-white/10 bg-[#FFFFFF]">
-          <div className="mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-[0.7fr_1.3fr] lg:px-8">
+        <section id="enquiry" className="scroll-mt-28 border-y border-[#E7E1D6] bg-[#FFFFFF]">
+          <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[0.7fr_1.3fr] lg:px-8">
             <div>
-              <p className="text-xs uppercase tracking-[0.38em] text-[#EC167A]">Start Your Journey</p>
-              <h2 className="mt-5 text-3xl text-white sm:text-4xl">Tell us where you need to be</h2>
-              <p className="mt-5 leading-7 text-[#4D4D4D]">For airport transfers, corporate travel, weddings and private journeys in Delhi NCR, submit the details below or speak directly with the concierge.</p>
+              <p className="text-xs uppercase tracking-[0.38em] text-[#657384]">Start Your Journey</p>
+              <h2 className="mt-5 text-3xl text-[#14283F] sm:text-4xl">Tell us where you need to be</h2>
+              <p className="mt-5 leading-7 text-[#14283F]">For airport transfers, corporate travel, weddings and private journeys in Delhi NCR, submit the details below or speak directly with the concierge.</p>
               <div className="mt-8 space-y-3 text-sm">
-                <a href="tel:+917703956880" className="block text-[#EC167A]">Call +91 77039 56880</a>
-                <a href={`https://wa.me/91${company.whatsapp}?text=${whatsappMessage}`} target="_blank" rel="noreferrer" className="block text-[#EC167A]">WhatsApp Concierge</a>
+                <a href="tel:+917703956880" className="block text-[#657384]">Call +91 77039 56880</a>
+                <a href={`https://wa.me/91${company.whatsapp}?text=${whatsappMessage}`} target="_blank" rel="noreferrer" className="block text-[#657384]">WhatsApp Concierge</a>
               </div>
             </div>
             <LuxuryChauffeurEnquiry />
           </div>
         </section>
 
-        <section className="mx-auto max-w-4xl px-4 py-20 sm:px-6 lg:px-8">
-          <p className="text-center text-xs uppercase tracking-[0.38em] text-[#EC167A]">Useful Information</p>
-          <h2 className="mt-5 text-center text-3xl text-white">Frequently asked questions</h2>
+        <section className="mx-auto max-w-4xl px-4 py-12 sm:px-6 lg:px-8">
+          <p className="text-center text-xs uppercase tracking-[0.38em] text-[#657384]">Useful Information</p>
+          <h2 className="mt-5 text-center text-3xl text-[#14283F]">Frequently asked questions</h2>
           <div className="mt-10 space-y-3">
-            <details className="border border-white/10 bg-[#FFFFFF] px-6 py-5"><summary className="cursor-pointer text-white">Which services can I enquire about?</summary><p className="mt-4 text-sm leading-7 text-[#4D4D4D]">You can request airport transfers, corporate chauffeur service, wedding transportation, hotel transfers, executive travel and private chauffeur-driven journeys.</p></details>
-            <details className="border border-white/10 bg-[#FFFFFF] px-6 py-5"><summary className="cursor-pointer text-white">Is vehicle availability guaranteed?</summary><p className="mt-4 text-sm leading-7 text-[#4D4D4D]">No. Vehicle and service availability must be checked for your requested city, date, route and itinerary before booking.</p></details>
-            <details className="border border-white/10 bg-[#FFFFFF] px-6 py-5"><summary className="cursor-pointer text-white">How do I receive a quote?</summary><p className="mt-4 text-sm leading-7 text-[#4D4D4D]">Submit the enquiry form or use WhatsApp. The team will review your requirements and respond with options and a personalised quotation when available.</p></details>
+            <details className="border border-[#E7E1D6] bg-[#FFFFFF] px-6 py-5"><summary className="cursor-pointer text-[#14283F]">Which services can I enquire about?</summary><p className="mt-4 text-sm leading-7 text-[#14283F]">You can request airport transfers, corporate chauffeur service, wedding transportation, hotel transfers, executive travel and private chauffeur-driven journeys.</p></details>
+            <details className="border border-[#E7E1D6] bg-[#FFFFFF] px-6 py-5"><summary className="cursor-pointer text-[#14283F]">Is vehicle availability guaranteed?</summary><p className="mt-4 text-sm leading-7 text-[#14283F]">No. Vehicle and service availability must be checked for your requested city, date, route and itinerary before booking.</p></details>
+            <details className="border border-[#E7E1D6] bg-[#FFFFFF] px-6 py-5"><summary className="cursor-pointer text-[#14283F]">How do I receive a quote?</summary><p className="mt-4 text-sm leading-7 text-[#14283F]">Submit the enquiry form or use WhatsApp. The team will review your requirements and respond with options and a personalised quotation when available.</p></details>
           </div>
-          <p className="mt-10 text-center text-xs text-[#4D4D4D]">RentRun Luxury arranges travel through partner operators. Review the <Link className="text-[#EC167A] underline" href="/privacy-policy">privacy policy</Link> before submitting personal details.</p>
+          <p className="mt-10 text-center text-xs text-[#14283F]">RentRun Luxury arranges travel through partner operators. Review the <Link className="text-[#657384] underline" href="/privacy-policy">privacy policy</Link> before submitting personal details.</p>
         </section>
       </main>
       <SiteFooter />

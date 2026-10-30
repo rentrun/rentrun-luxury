@@ -7,13 +7,15 @@ export const metadata = createPageMetadata(
   "Corporate Luxury Car Service | RentRun Luxury",
   "Corporate luxury car service for executive travel, delegation mobility and premium airport transfer requirements.",
   "/luxury-cars/corporate",
+  null,
+  "/corporate",
 );
 
 export default function CorporateLuxuryCarPage() {
   return (
     <>
       <SiteHeader />
-      <main className="bg-[#171717] text-[#171717]">
+      <main className="bg-white text-[#14283F]">
         <PageHero
           eyebrow="Corporate Mobility"
           title="Corporate Luxury Cars for Executive Travel"

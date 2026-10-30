@@ -12,8 +12,8 @@ export default function CancellationPolicyPage() {
   return (
     <>
       <SiteHeader />
-      <main className="mx-auto max-w-4xl px-4 py-20 text-[#171717] sm:px-6 lg:px-8">
-        <h1 className="text-4xl text-white">Cancellation Policy</h1>
+      <main className="mx-auto max-w-4xl px-4 py-12 text-[#14283F] sm:px-6 lg:px-8">
+        <h1 className="text-4xl text-[#14283F]">Cancellation Policy</h1>
         <p className="mt-6 leading-8">
           Cancellation terms vary by service type, operator, destination, and confirmation timeline. In most cases, a booking may be subject to cancellation charges if the request is withdrawn after confirmation or close to the travel date.
         </p>

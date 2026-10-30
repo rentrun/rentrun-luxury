@@ -9,14 +9,16 @@ export function createPageMetadata(
   description: string,
   path: string,
   image?: string | null,
+  canonicalPath?: string,
 ): Metadata {
-  const url = `https://luxury.rentrun.in${path}`;
+  const canonical = canonicalPath ?? path;
+  const url = `https://luxury.rentrun.in${canonical}`;
   const socialImage = image ?? defaultSocialImage;
 
   return {
     title,
     description,
-    alternates: { canonical: path },
+    alternates: { canonical },
     openGraph: {
       title,
       description,

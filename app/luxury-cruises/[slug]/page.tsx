@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -44,69 +45,70 @@ export default async function CordeliaCruiseDetailPage({ params }: CordeliaPageP
   return (
     <>
       <SiteHeader />
-      <main className="bg-[#171717] text-[#171717]">
+      <main className="bg-white text-[#14283F]">
+        <Breadcrumbs items={[{ name: "Home", href: "/" }, { name: "Luxury Cruises", href: "/luxury-cruises" }, { name: ship?.name ?? "Cruise Experiences" }]} />
         <section className="relative min-h-[58vh] overflow-hidden">
           <Image src={ship?.heroImage ?? cordeliaShips[0].heroImage} alt="Luxury cruise ship at sea" fill priority sizes="100vw" className="object-cover" />
-          <div className="absolute inset-0 bg-black/55" />
-          <div className="relative mx-auto flex min-h-[58vh] max-w-7xl flex-col justify-end px-4 py-16 sm:px-6 lg:px-8">
-            <p className="text-xs uppercase tracking-[0.3em] text-[#EC167A]">Luxury Cruise</p>
-            <h1 className="mt-4 text-4xl font-light text-white sm:text-6xl">{ship ? "Premium Cruise Journey" : "Curated Luxury Cruise Experiences"}</h1>
-            <p className="mt-5 max-w-3xl text-[#171717]">Handpicked sailing experiences with routes, dates and cabin categories subject to availability and final confirmation.</p>
-            <Link href="/contact#enquiry" className="mt-7 w-fit bg-[#EC167A] px-6 py-3 text-xs uppercase tracking-[0.2em] text-[#171717]">Request Cruise Quote</Link>
+          <div className="absolute inset-0 bg-[#E7E1D6]/55" />
+          <div className="relative mx-auto flex min-h-[58vh] max-w-7xl flex-col justify-end px-4 py-12 sm:px-6 lg:px-8">
+            <p className="text-xs uppercase tracking-[0.3em] text-[#657384]">Luxury Cruise</p>
+            <h1 className="mt-4 text-4xl font-light text-[#14283F] sm:text-6xl">{ship ? "Premium Cruise Journey" : "Curated Luxury Cruise Experiences"}</h1>
+            <p className="mt-5 max-w-3xl text-[#14283F]">Handpicked sailing experiences with routes, dates and cabin categories subject to availability and final confirmation.</p>
+            <Link href="/contact#enquiry" className="mt-7 w-fit bg-[#14283F] px-6 py-3 text-xs uppercase tracking-[0.2em] text-white">Request Cruise Quote</Link>
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-[#EC167A]">Cruise Gallery</p>
-              <h2 className="mt-3 text-3xl text-white">A closer look aboard.</h2>
+              <p className="text-xs uppercase tracking-[0.3em] text-[#657384]">Cruise Gallery</p>
+              <h2 className="mt-3 text-3xl text-[#14283F]">A closer look aboard.</h2>
             </div>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {gallery.map((image, index) => (
-              <figure key={`${image.src}-${index}`} className={`relative aspect-[4/3] overflow-hidden border border-white/10 ${index === 0 ? "sm:col-span-2 sm:row-span-2 sm:aspect-auto sm:min-h-[26rem]" : ""}`}>
+              <figure key={`${image.src}-${index}`} className={`relative aspect-[4/3] overflow-hidden border border-[#E7E1D6] ${index === 0 ? "sm:col-span-2 sm:row-span-2 sm:aspect-auto sm:min-h-[26rem]" : ""}`}>
                 <Image src={image.src} alt={image.alt} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover" />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent px-4 pb-4 pt-10 text-sm text-white">{image.label}</figcaption>
+                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-white/90 to-transparent px-4 pb-4 pt-10 text-sm text-[#14283F]">{image.label}</figcaption>
               </figure>
             ))}
           </div>
         </section>
 
-        <section className="mx-auto grid max-w-7xl gap-12 border-y border-white/10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8">
+        <section className="mx-auto grid max-w-7xl gap-8 border-y border-[#E7E1D6] px-4 py-12 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-[#EC167A]">Cruise overview</p>
-            <h2 className="mt-4 text-3xl text-white">Premium Cruise Journeys</h2>
-            <p className="mt-5 leading-7 text-[#4D4D4D]">Explore distinctive destinations, departure ports and onboard experiences. Routes, sailing dates and cabin options are subject to sailing availability and final confirmation.</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-[#657384]">Cruise overview</p>
+            <h2 className="mt-4 text-3xl text-[#14283F]">Premium Cruise Journeys</h2>
+            <p className="mt-5 leading-7 text-[#14283F]">Explore distinctive destinations, departure ports and onboard experiences. Routes, sailing dates and cabin options are subject to sailing availability and final confirmation.</p>
           </div>
           <div>
-            <h3 className="text-xl text-white">Cabins & experiences</h3>
-            <p className="mt-4 text-sm leading-6 text-[#4D4D4D]">Multiple cabin categories are available. Cabin types and availability vary by sailing.</p>
+            <h3 className="text-xl text-[#14283F]">Cabins & experiences</h3>
+            <p className="mt-4 text-sm leading-6 text-[#14283F]">Multiple cabin categories are available. Cabin types and availability vary by sailing.</p>
             <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-              {cordeliaExperiences.map((experience) => <li key={experience} className="border-t border-white/10 py-3 text-[#171717]">{experience}</li>)}
+              {cordeliaExperiences.map((experience) => <li key={experience} className="border-t border-[#E7E1D6] py-3 text-[#14283F]">{experience}</li>)}
             </ul>
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
           <div className="mb-8 flex items-end justify-between gap-4">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-[#EC167A]">Sailing information</p>
-              <h2 className="mt-3 text-3xl text-white">Upcoming sailings</h2>
+              <p className="text-xs uppercase tracking-[0.3em] text-[#657384]">Sailing information</p>
+              <h2 className="mt-3 text-3xl text-[#14283F]">Upcoming sailings</h2>
             </div>
           </div>
           {sailings.length ? (
             <div className="grid gap-4 md:grid-cols-2">
-              {sailings.map((sailing, index) => <article key={`${sailing.ship}-${sailing.cruiseName}-${index}`} className="border-y border-white/10 py-5 text-sm text-[#171717]">
-                <p className="text-lg text-white">{sailing.cruiseName} Â· {sailing.duration ?? (sailing.nights ? `${sailing.nights} Nights` : "Duration on request")}</p>
+              {sailings.map((sailing, index) => <article key={`${sailing.ship}-${sailing.cruiseName}-${index}`} className="border-y border-[#E7E1D6] py-5 text-sm text-[#14283F]">
+                <p className="text-lg text-[#14283F]">{sailing.cruiseName} Â· {sailing.duration ?? (sailing.nights ? `${sailing.nights} Nights` : "Duration on request")}</p>
                 <p className="mt-3">{sailing.departurePort} · {sailing.ports.join(" → ")}</p>
                 <p className="mt-2">{sailing.destinations.join(", ")} Â· {sailing.departureDate ?? "Dates on request"} to {sailing.returnDate ?? "Dates on request"} Â· {sailing.availability}</p>
               </article>)}
             </div>
-          ) : <p className="max-w-3xl border-y border-white/10 py-6 text-[#4D4D4D]">No current sailing dates are listed. Request a quote for upcoming dates, routes and cabin availability.</p>}
+          ) : <p className="max-w-3xl border-y border-[#E7E1D6] py-6 text-[#14283F]">No current sailing dates are listed. Request a quote for upcoming dates, routes and cabin availability.</p>}
         </section>
 
-        <section id="enquiry" className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8"><EnquiryForm variant="cruise" /></section>
+        <section id="enquiry" className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8"><EnquiryForm variant="cruise" /></section>
       </main>
       <SiteFooter />
     </>

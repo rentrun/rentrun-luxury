@@ -19,5 +19,12 @@ export default function WeddingsPage() {
       { href: "/wedding-luxury-transport", label: "Wedding luxury transport" },
       { href: "/luxury-cars/wedding", label: "Luxury wedding cars" },
     ]}
+    breadcrumbs={[{ name: "Home", href: "/" }, { name: "Weddings" }]}
+    faqItems={[
+      { question: "What wedding transport can be requested?", answer: "Requests can include couple and family arrivals, guest movement, hotel transfers, airport collection and related celebration travel, subject to itinerary and partner availability." },
+      { question: "Can you coordinate transport for multiple locations?", answer: "Yes. Share the event schedule, pickup points, destinations and passenger groups so the concierge can propose a coordinated arrangement." },
+      { question: "Which vehicle will be assigned?", answer: "The proposed vehicle category is confirmed after availability checks. Vehicle images are illustrative, and the final quotation should be reviewed before confirmation." },
+      { question: "Can wedding dates and times be changed?", answer: "Changes may be subject to availability and the cancellation or amendment terms in the quotation and cancellation policy." },
+    ]}
   />;
 }

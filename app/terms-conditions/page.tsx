@@ -12,8 +12,8 @@ export default function TermsConditionsPage() {
   return (
     <>
       <SiteHeader />
-      <main className="mx-auto max-w-4xl px-4 py-20 text-[#171717] sm:px-6 lg:px-8">
-        <h1 className="text-4xl text-white">Terms & Conditions</h1>
+      <main className="mx-auto max-w-4xl px-4 py-12 text-[#14283F] sm:px-6 lg:px-8">
+        <h1 className="text-4xl text-[#14283F]">Terms & Conditions</h1>
         <p className="mt-6 leading-8">
           RentRun Luxury works as a concierge-led travel service and arranges premium vehicles, charter experiences and cruise options through verified professional partners. All services are subject to availability, vendor confirmation, legal compliance and destination-specific requirements.
         </p>

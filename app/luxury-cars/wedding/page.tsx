@@ -7,13 +7,15 @@ export const metadata = createPageMetadata(
   "Wedding Luxury Cars | RentRun Luxury",
   "Luxury wedding car transportation, guest transfers and premium arrival experiences for celebrations and destination weddings.",
   "/luxury-cars/wedding",
+  null,
+  "/weddings",
 );
 
 export default function WeddingLuxuryCarsPage() {
   return (
     <>
       <SiteHeader />
-      <main className="bg-[#171717] text-[#171717]">
+      <main className="bg-white text-[#14283F]">
         <PageHero
           eyebrow="Wedding Cars"
           title="Luxury Wedding Cars and Chauffeur Transport"
