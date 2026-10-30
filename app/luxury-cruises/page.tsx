@@ -16,7 +16,7 @@ export default function LuxuryCruisesPage() {
   return (
     <>
       <SiteHeader />
-      <main className="bg-[#090909] text-[#f5efe6]">
+      <main className="bg-[#171717] text-[#171717]">
         <PageHero
           eyebrow="Private Cruise Concierge"
           title="Luxury Cruise Experiences from India"
@@ -30,9 +30,9 @@ export default function LuxuryCruisesPage() {
 
         <section id="cruise-experiences" className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <div className="mb-12 text-center">
-            <p className="text-xs uppercase tracking-[0.38em] text-[#d4af75]">Handpicked Sailing Experiences</p>
+            <p className="text-xs uppercase tracking-[0.38em] text-[#EC167A]">Handpicked Sailing Experiences</p>
             <h2 className="mt-5 text-3xl text-white sm:text-4xl">Premium Cruise Journeys</h2>
-            <p className="mx-auto mt-4 max-w-3xl text-[#d9d1c5]">Explore memorable routes, onboard experiences and cabin categories. Subject to sailing availability and final confirmation.</p>
+            <p className="mx-auto mt-4 max-w-3xl text-[#4D4D4D]">Explore memorable routes, onboard experiences and cabin categories. Subject to sailing availability and final confirmation.</p>
           </div>
 
           <CruiseCatalog />

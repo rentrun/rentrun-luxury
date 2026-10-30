@@ -14,7 +14,7 @@ export default function ChauffeurServicePage() {
   return (
     <>
       <SiteHeader />
-      <main className="bg-[#090909] text-[#f5efe6]">
+      <main className="bg-[#171717] text-[#171717]">
         <PageHero
           eyebrow="Luxury Chauffeur Service"
           title="Luxury Chauffeur Service for Private and Executive Travel"
@@ -25,13 +25,13 @@ export default function ChauffeurServicePage() {
           secondaryLabel="Call Concierge"
           secondaryHref="tel:+917703956880"
         />
-        <section className="mx-auto max-w-4xl px-4 py-16 text-[#e7dfd2] sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-4xl px-4 py-16 text-[#171717] sm:px-6 lg:px-8">
           <h2 className="text-2xl text-white">Chauffeur-driven travel, arranged around your request</h2>
           <p className="mt-4 leading-7">
             RentRun Luxury coordinates chauffeur-driven cars through its service-partner network. Vehicle and service availability depend on the requested city and date; confirm the vehicle, itinerary and arrangements with the concierge before booking.
           </p>
           <p className="mt-4 leading-7">
-            Explore the <Link className="text-[#f0d7a5] underline" href="/luxury-cars">available luxury car categories</Link> or <Link className="text-[#f0d7a5] underline" href="/contact#enquiry">send an enquiry</Link> with your route and travel details.
+            Explore the <Link className="text-[#EC167A] underline" href="/luxury-cars">available luxury car categories</Link> or <Link className="text-[#EC167A] underline" href="/contact#enquiry">send an enquiry</Link> with your route and travel details.
           </p>
         </section>
       </main>

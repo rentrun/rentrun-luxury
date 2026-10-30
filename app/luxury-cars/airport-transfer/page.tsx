@@ -14,7 +14,7 @@ export default function AirportTransferPage() {
   return (
     <>
       <SiteHeader />
-      <main className="bg-[#090909] text-[#f5efe6]">
+      <main className="bg-[#171717] text-[#171717]">
         <PageHero
           eyebrow="Airport Transfer"
           title="Chauffeur-Driven Airport Transfers"
@@ -25,13 +25,13 @@ export default function AirportTransferPage() {
           secondaryLabel="WhatsApp"
           secondaryHref="https://wa.me/917703956880?text=Hello%20RentRun%20Luxury%2C%20I%20need%20a%20premium%20airport%20transfer."
         />
-        <section className="mx-auto max-w-4xl px-4 py-16 text-[#e7dfd2] sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-4xl px-4 py-16 text-[#171717] sm:px-6 lg:px-8">
           <h2 className="text-2xl text-white">Request an airport transfer</h2>
           <p className="mt-4 leading-7">
             Share your airport, travel date and time, pickup and drop-off points, passenger count and luggage needs. Vehicle, city coverage and any meet-and-greet support are confirmed for each request.
           </p>
           <p className="mt-4 leading-7">
-            Browse our <Link className="text-[#f0d7a5] underline" href="/luxury-cars">chauffeur-driven luxury cars</Link> or <Link className="text-[#f0d7a5] underline" href="/contact#enquiry">request a quote</Link>. Availability is subject to city, date and vehicle confirmation.
+            Browse our <Link className="text-[#EC167A] underline" href="/luxury-cars">chauffeur-driven luxury cars</Link> or <Link className="text-[#EC167A] underline" href="/contact#enquiry">request a quote</Link>. Availability is subject to city, date and vehicle confirmation.
           </p>
         </section>
       </main>

@@ -14,7 +14,7 @@ export default function VipTransportationPage() {
   return (
     <>
       <SiteHeader />
-      <main className="bg-[#090909] text-[#f5efe6]">
+      <main className="bg-[#171717] text-[#171717]">
         <PageHero
           eyebrow="VIP Transport"
           title="Private Movement. Personalised Service."
@@ -36,7 +36,7 @@ export default function VipTransportationPage() {
               "Senior leadership movements",
               "Guest handling and coordination",
             ].map((item) => (
-              <div key={item} className="rounded-2xl border border-white/10 bg-[#101010] p-6 text-[#f5efe6]">
+              <div key={item} className="rounded-2xl border border-white/10 bg-[#FFFFFF] p-6 text-[#171717]">
                 {item}
               </div>
             ))}

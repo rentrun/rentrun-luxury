@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/wedding-luxury-transport",
     "/luxury-cars/airport-transfer",
     "/luxury-cars/chauffeur-service",
+    "/luxury-chauffeur-service",
     "/luxury-cars/corporate",
     "/luxury-cars/wedding",
     "/private-charter/jet",

@@ -15,7 +15,7 @@ export default function ContactPage() {
   return (
     <>
       <SiteHeader />
-      <main className="bg-[#090909] text-[#f5efe6]">
+      <main className="bg-[#171717] text-[#171717]">
         <PageHero
           eyebrow="Contact"
           title="Tell Us What You Have in Mind."
@@ -29,10 +29,10 @@ export default function ContactPage() {
 
         <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
-            <div className="rounded-[2rem] border border-white/10 bg-[#101010] p-8">
-              <p className="text-xs uppercase tracking-[0.3em] text-[#d4af75]">Contact details</p>
+            <div className="rounded-[2rem] border border-white/10 bg-[#FFFFFF] p-8">
+              <p className="text-xs uppercase tracking-[0.3em] text-[#EC167A]">Contact details</p>
               <h2 className="mt-4 text-3xl text-white">Luxury concierge desk</h2>
-              <ul className="mt-8 space-y-4 text-[#e7dfd2]">
+              <ul className="mt-8 space-y-4 text-[#171717]">
                 <li><a href="tel:+917703956880">Phone: {company.phonePrimary}</a></li>
                 <li><a href="tel:+918178575212">{company.phoneSecondary}</a></li>
                 <li><a href={`https://wa.me/91${company.whatsapp}`}>WhatsApp: {company.whatsapp}</a></li>

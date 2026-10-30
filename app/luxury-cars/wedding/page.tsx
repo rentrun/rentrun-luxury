@@ -13,7 +13,7 @@ export default function WeddingLuxuryCarsPage() {
   return (
     <>
       <SiteHeader />
-      <main className="bg-[#090909] text-[#f5efe6]">
+      <main className="bg-[#171717] text-[#171717]">
         <PageHero
           eyebrow="Wedding Cars"
           title="Luxury Wedding Cars and Chauffeur Transport"

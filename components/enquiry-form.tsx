@@ -57,11 +57,11 @@ export function EnquiryForm({ variant = 'general' }: { variant?: 'general' | 'cr
   const whatsappHref = `https://wa.me/91${company.whatsapp}?text=${encodeURIComponent(`Hello RentRun Luxury, I would like to enquire.\n${details}`)}`;
 
   return (
-    <div className="rounded-[2rem] border border-[#d4af75]/30 bg-[#141414] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.35)] sm:p-8">
+    <div className="rounded-[2rem] border border-[#EC167A]/30 bg-[#141414] p-5 shadow-[0_20px_60px_rgba(0,0,0,0.35)] sm:p-8">
       <div className="mb-6">
-          <p className="text-xs uppercase tracking-[0.35em] text-[#d4af75]">Private Enquiry</p>
+          <p className="text-xs uppercase tracking-[0.35em] text-[#EC167A]">Private Enquiry</p>
           <h3 className="mt-3 text-3xl text-white">{variant === 'cruise' ? 'Request Cruise Quote' : 'Request My Private Quote'}</h3>
-          <p className="mt-3 text-sm text-[#b7aa96]">Your email app will open with the enquiry details ready to send. For direct assistance, use WhatsApp Concierge.</p>
+          <p className="mt-3 text-sm text-[#4D4D4D]">Your email app will open with the enquiry details ready to send. For direct assistance, use WhatsApp Concierge.</p>
       </div>
 
       <form onSubmit={handleSubmit} className="grid gap-5 md:grid-cols-2">
@@ -72,14 +72,14 @@ export function EnquiryForm({ variant = 'general' }: { variant?: 'general' | 'cr
             autoComplete="name"
             value={form.name}
             onChange={(event) => handleChange('name', event.target.value)}
-            className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#d4af75]"
+            className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#EC167A]"
           />
         </label>
 
         {variant === 'cruise' ? null : (
           <label className="flex flex-col gap-2 text-sm text-[#efe7dc]">
             Phone
-            <input required type="tel" autoComplete="tel" value={form.phone} onChange={(event) => handleChange('phone', event.target.value)} className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#d4af75]" />
+            <input required type="tel" autoComplete="tel" value={form.phone} onChange={(event) => handleChange('phone', event.target.value)} className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#EC167A]" />
           </label>
         )}
 
@@ -90,7 +90,7 @@ export function EnquiryForm({ variant = 'general' }: { variant?: 'general' | 'cr
             type="tel"
             value={form.whatsappNumber}
             onChange={(event) => handleChange('whatsappNumber', event.target.value)}
-            className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#d4af75]"
+            className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#EC167A]"
           />
         </label>
 
@@ -102,7 +102,7 @@ export function EnquiryForm({ variant = 'general' }: { variant?: 'general' | 'cr
             autoComplete="email"
             value={form.email}
             onChange={(event) => handleChange('email', event.target.value)}
-            className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#d4af75]"
+            className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#EC167A]"
           />
         </label>
 
@@ -110,22 +110,22 @@ export function EnquiryForm({ variant = 'general' }: { variant?: 'general' | 'cr
           <>
             <label className="flex flex-col gap-2 text-sm text-[#efe7dc]">
               Preferred Cruise
-              <input value={form.cruise} onChange={(event) => handleChange('cruise', event.target.value)} className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#d4af75]" />
+              <input value={form.cruise} onChange={(event) => handleChange('cruise', event.target.value)} className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#EC167A]" />
             </label>
             <label className="flex flex-col gap-2 text-sm text-[#efe7dc]">
               Departure City
-              <input value={form.departurePort} onChange={(event) => handleChange('departurePort', event.target.value)} className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#d4af75]" />
+              <input value={form.departurePort} onChange={(event) => handleChange('departurePort', event.target.value)} className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#EC167A]" />
             </label>
             <label className="flex flex-col gap-2 text-sm text-[#efe7dc]">
               Cabin Preference
-              <input value={form.cabinPreference} onChange={(event) => handleChange('cabinPreference', event.target.value)} className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#d4af75]" />
+              <input value={form.cabinPreference} onChange={(event) => handleChange('cabinPreference', event.target.value)} className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#EC167A]" />
             </label>
           </>
         ) : (
           <>
             <label className="flex flex-col gap-2 text-sm text-[#efe7dc]">
               Service
-              <select value={form.service} onChange={(event) => handleChange('service', event.target.value)} className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#d4af75]">
+              <select value={form.service} onChange={(event) => handleChange('service', event.target.value)} className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#EC167A]">
                 <option>Luxury Cars</option>
                 <option>Private Charter</option>
                 <option>Helicopter Charter</option>
@@ -137,7 +137,7 @@ export function EnquiryForm({ variant = 'general' }: { variant?: 'general' | 'cr
             </label>
             <label className="flex flex-col gap-2 text-sm text-[#efe7dc]">
               Vehicle / Aircraft / Cruise
-              <input value={form.experience} onChange={(event) => handleChange('experience', event.target.value)} className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#d4af75]" />
+              <input value={form.experience} onChange={(event) => handleChange('experience', event.target.value)} className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#EC167A]" />
             </label>
           </>
         )}
@@ -148,21 +148,21 @@ export function EnquiryForm({ variant = 'general' }: { variant?: 'general' | 'cr
             type="date"
             value={form.travelDate}
             onChange={(event) => handleChange('travelDate', event.target.value)}
-            className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#d4af75]"
+            className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#EC167A]"
           />
         </label>
 
         {variant === 'cruise' ? (
           <label className="flex flex-col gap-2 text-sm text-[#efe7dc]">
             Return Date
-            <input type="date" value={form.returnDate} onChange={(event) => handleChange('returnDate', event.target.value)} className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#d4af75]" />
+            <input type="date" value={form.returnDate} onChange={(event) => handleChange('returnDate', event.target.value)} className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#EC167A]" />
           </label>
         ) : null}
 
         {variant === 'cruise' ? null : (
           <label className="flex flex-col gap-2 text-sm text-[#efe7dc]">
             Pickup City
-            <input value={form.pickupCity} onChange={(event) => handleChange('pickupCity', event.target.value)} className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#d4af75]" />
+            <input value={form.pickupCity} onChange={(event) => handleChange('pickupCity', event.target.value)} className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#EC167A]" />
           </label>
         )}
 
@@ -171,7 +171,7 @@ export function EnquiryForm({ variant = 'general' }: { variant?: 'general' | 'cr
           <input
             value={form.destination}
             onChange={(event) => handleChange('destination', event.target.value)}
-            className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#d4af75]"
+            className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#EC167A]"
           />
         </label>
 
@@ -182,7 +182,7 @@ export function EnquiryForm({ variant = 'general' }: { variant?: 'general' | 'cr
             min="1"
             value={form.passengers}
             onChange={(event) => handleChange('passengers', event.target.value)}
-            className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#d4af75]"
+            className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#EC167A]"
           />
         </label>
 
@@ -192,19 +192,19 @@ export function EnquiryForm({ variant = 'general' }: { variant?: 'general' | 'cr
             rows={3}
             value={form.specialRequirements}
             onChange={(event) => handleChange('specialRequirements', event.target.value)}
-            className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#d4af75]"
+            className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#EC167A]"
           />
         </label>
 
         {variant === 'cruise' ? null : (
           <label className="flex flex-col gap-2 text-sm text-[#efe7dc] md:col-span-2">
             Message
-            <textarea rows={3} value={form.message} onChange={(event) => handleChange('message', event.target.value)} className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#d4af75]" />
+            <textarea rows={3} value={form.message} onChange={(event) => handleChange('message', event.target.value)} className="rounded-xl border border-white/10 bg-[#0d0d0d] px-4 py-3 text-white outline-none transition focus:border-[#EC167A]" />
           </label>
         )}
 
         <div className="md:col-span-2 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <button type="submit" className="rounded-full bg-[#d4af75] px-6 py-3 text-xs font-medium uppercase tracking-[0.25em] text-[#090909] transition hover:brightness-110">
+          <button type="submit" className="rounded-full bg-[#EC167A] px-6 py-3 text-xs font-medium uppercase tracking-[0.25em] text-[#171717] transition hover:brightness-110">
             {variant === 'cruise' ? 'Request Cruise Quote' : 'Request My Private Quote'}
           </button>
 
@@ -212,7 +212,7 @@ export function EnquiryForm({ variant = 'general' }: { variant?: 'general' | 'cr
             href={whatsappHref}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center justify-center rounded-full border border-[#d4af75]/60 bg-transparent px-6 py-3 text-xs font-medium uppercase tracking-[0.25em] text-[#f5efe6] transition hover:bg-[#d4af75]/10"
+            className="inline-flex items-center justify-center rounded-full border border-[#EC167A]/60 bg-transparent px-6 py-3 text-xs font-medium uppercase tracking-[0.25em] text-[#171717] transition hover:bg-[#EC167A]/10"
           >
             WhatsApp Concierge
           </a>
@@ -220,7 +220,7 @@ export function EnquiryForm({ variant = 'general' }: { variant?: 'general' | 'cr
       </form>
 
       {handoffStarted ? (
-        <p role="status" className="mt-6 text-sm text-[#d9d1c5]">
+        <p role="status" className="mt-6 text-sm text-[#4D4D4D]">
           {variant === 'cruise' ? 'Thank you. Our Luxury Cruise Concierge will contact you shortly with availability and a personalised quote.' : 'Your email app should open with your enquiry. It has not been sent until you confirm in that app; you can also use WhatsApp Concierge.'}
         </p>
       ) : null}

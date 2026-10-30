@@ -44,22 +44,22 @@ export default async function CordeliaCruiseDetailPage({ params }: CordeliaPageP
   return (
     <>
       <SiteHeader />
-      <main className="bg-[#090909] text-[#f5efe6]">
+      <main className="bg-[#171717] text-[#171717]">
         <section className="relative min-h-[58vh] overflow-hidden">
           <Image src={ship?.heroImage ?? cordeliaShips[0].heroImage} alt="Luxury cruise ship at sea" fill priority sizes="100vw" className="object-cover" />
           <div className="absolute inset-0 bg-black/55" />
           <div className="relative mx-auto flex min-h-[58vh] max-w-7xl flex-col justify-end px-4 py-16 sm:px-6 lg:px-8">
-            <p className="text-xs uppercase tracking-[0.3em] text-[#d4af75]">Luxury Cruise</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-[#EC167A]">Luxury Cruise</p>
             <h1 className="mt-4 text-4xl font-light text-white sm:text-6xl">{ship ? "Premium Cruise Journey" : "Curated Luxury Cruise Experiences"}</h1>
-            <p className="mt-5 max-w-3xl text-[#f0e7d9]">Handpicked sailing experiences with routes, dates and cabin categories subject to availability and final confirmation.</p>
-            <Link href="/contact#enquiry" className="mt-7 w-fit bg-[#d4af75] px-6 py-3 text-xs uppercase tracking-[0.2em] text-[#090909]">Request Cruise Quote</Link>
+            <p className="mt-5 max-w-3xl text-[#171717]">Handpicked sailing experiences with routes, dates and cabin categories subject to availability and final confirmation.</p>
+            <Link href="/contact#enquiry" className="mt-7 w-fit bg-[#EC167A] px-6 py-3 text-xs uppercase tracking-[0.2em] text-[#171717]">Request Cruise Quote</Link>
           </div>
         </section>
 
         <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-[#d4af75]">Cruise Gallery</p>
+              <p className="text-xs uppercase tracking-[0.3em] text-[#EC167A]">Cruise Gallery</p>
               <h2 className="mt-3 text-3xl text-white">A closer look aboard.</h2>
             </div>
           </div>
@@ -75,15 +75,15 @@ export default async function CordeliaCruiseDetailPage({ params }: CordeliaPageP
 
         <section className="mx-auto grid max-w-7xl gap-12 border-y border-white/10 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-[#d4af75]">Cruise overview</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-[#EC167A]">Cruise overview</p>
             <h2 className="mt-4 text-3xl text-white">Premium Cruise Journeys</h2>
-            <p className="mt-5 leading-7 text-[#d9d1c5]">Explore distinctive destinations, departure ports and onboard experiences. Routes, sailing dates and cabin options are subject to sailing availability and final confirmation.</p>
+            <p className="mt-5 leading-7 text-[#4D4D4D]">Explore distinctive destinations, departure ports and onboard experiences. Routes, sailing dates and cabin options are subject to sailing availability and final confirmation.</p>
           </div>
           <div>
             <h3 className="text-xl text-white">Cabins & experiences</h3>
-            <p className="mt-4 text-sm leading-6 text-[#d9d1c5]">Multiple cabin categories are available. Cabin types and availability vary by sailing.</p>
+            <p className="mt-4 text-sm leading-6 text-[#4D4D4D]">Multiple cabin categories are available. Cabin types and availability vary by sailing.</p>
             <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-              {cordeliaExperiences.map((experience) => <li key={experience} className="border-t border-white/10 py-3 text-[#e7dfd2]">{experience}</li>)}
+              {cordeliaExperiences.map((experience) => <li key={experience} className="border-t border-white/10 py-3 text-[#171717]">{experience}</li>)}
             </ul>
           </div>
         </section>
@@ -91,19 +91,19 @@ export default async function CordeliaCruiseDetailPage({ params }: CordeliaPageP
         <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
           <div className="mb-8 flex items-end justify-between gap-4">
             <div>
-              <p className="text-xs uppercase tracking-[0.3em] text-[#d4af75]">Sailing information</p>
+              <p className="text-xs uppercase tracking-[0.3em] text-[#EC167A]">Sailing information</p>
               <h2 className="mt-3 text-3xl text-white">Upcoming sailings</h2>
             </div>
           </div>
           {sailings.length ? (
             <div className="grid gap-4 md:grid-cols-2">
-              {sailings.map((sailing, index) => <article key={`${sailing.ship}-${sailing.cruiseName}-${index}`} className="border-y border-white/10 py-5 text-sm text-[#e7dfd2]">
+              {sailings.map((sailing, index) => <article key={`${sailing.ship}-${sailing.cruiseName}-${index}`} className="border-y border-white/10 py-5 text-sm text-[#171717]">
                 <p className="text-lg text-white">{sailing.cruiseName} Â· {sailing.duration ?? (sailing.nights ? `${sailing.nights} Nights` : "Duration on request")}</p>
                 <p className="mt-3">{sailing.departurePort} · {sailing.ports.join(" → ")}</p>
                 <p className="mt-2">{sailing.destinations.join(", ")} Â· {sailing.departureDate ?? "Dates on request"} to {sailing.returnDate ?? "Dates on request"} Â· {sailing.availability}</p>
               </article>)}
             </div>
-          ) : <p className="max-w-3xl border-y border-white/10 py-6 text-[#b7aa96]">No current sailing dates are listed. Request a quote for upcoming dates, routes and cabin availability.</p>}
+          ) : <p className="max-w-3xl border-y border-white/10 py-6 text-[#4D4D4D]">No current sailing dates are listed. Request a quote for upcoming dates, routes and cabin availability.</p>}
         </section>
 
         <section id="enquiry" className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8"><EnquiryForm variant="cruise" /></section>

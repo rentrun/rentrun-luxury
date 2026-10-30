@@ -14,7 +14,7 @@ export default function PrivateJetPage() {
   return (
     <>
       <SiteHeader />
-      <main className="bg-[#090909] text-[#f5efe6]">
+      <main className="bg-[#171717] text-[#171717]">
         <PageHero
           eyebrow="Private Jet Charter"
           title="Private Jet Charter Arranged Through Operators"
@@ -25,13 +25,13 @@ export default function PrivateJetPage() {
           secondaryLabel="WhatsApp"
           secondaryHref="https://wa.me/917703956880?text=Hello%20RentRun%20Luxury%2C%20I%20need%20a%20private%20jet%20charter%20quote."
         />
-        <section className="mx-auto max-w-4xl px-4 py-16 text-[#e7dfd2] sm:px-6 lg:px-8">
+        <section className="mx-auto max-w-4xl px-4 py-16 text-[#171717] sm:px-6 lg:px-8">
           <h2 className="text-2xl text-white">Request a private jet charter</h2>
           <p className="mt-4 leading-7">
             Share your departure and arrival airports, preferred dates, passenger count and itinerary. Aircraft, routing, availability and quotation are confirmed with the operating partner for each request.
           </p>
           <p className="mt-4 leading-7">
-            Explore <Link className="text-[#f0d7a5] underline" href="/private-charter">private charter options</Link> or <Link className="text-[#f0d7a5] underline" href="/contact#enquiry">contact the concierge</Link>.
+            Explore <Link className="text-[#EC167A] underline" href="/private-charter">private charter options</Link> or <Link className="text-[#EC167A] underline" href="/contact#enquiry">contact the concierge</Link>.
           </p>
         </section>
       </main>
