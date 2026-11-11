@@ -1,0 +1,56 @@
+export const weddingCarPackages = [
+  "8 Hours / 80 KM",
+  "12 Hours / 120 KM",
+] as const;
+
+export const weddingCarRateSections = [
+  {
+    title: "Premium & Luxury Cars",
+    vehicles: [
+      { name: "Rolls Royce Ghost", price: "₹4,00,000*" },
+      { name: "Mercedes MAYBACH", price: "₹1,60,000*" },
+      { name: "Bentley Flying Spur", price: "₹1,60,000*" },
+      { name: "Range Rover Autobiography", price: "₹1,60,000*" },
+      { name: "Range Rover Sport", price: "₹80,000*" },
+      { name: "Range Rover Defender", price: "₹65,000*" },
+      { name: "Mercedes S Class S450", price: "₹60,000*" },
+      { name: "Mercedes GLS", price: "₹60,000*" },
+      { name: "BMW 7 Series", price: "₹60,000*" },
+      { name: "Jaguar XJL", price: "₹60,000*" },
+      { name: "Mercedes S Class S350", price: "₹45,000*" },
+      { name: "BMW X6", price: "₹45,000*" },
+      { name: "Mercedes Cabriolet", price: "₹45,000*" },
+      { name: "Audi Q7", price: "₹35,000*" },
+      { name: "Audi A3 Cabriolet", price: "₹28,000*" },
+      { name: "Lexus ES 300H", price: "₹25,000*" },
+      { name: "Mercedes E Class", price: "₹25,000*" },
+      { name: "BMW 5 Series", price: "₹25,000*" },
+      { name: "BMW 3 Series", price: "₹25,000*" },
+      { name: "Mercedes C Class", price: "₹25,000*" },
+      { name: "Audi Q5", price: "₹30,000*" },
+      { name: "Jaguar XF", price: "₹30,000*" },
+      { name: "Volvo XC40", price: "₹30,000*" },
+      { name: "BMW X1", price: "₹20,000*" },
+      { name: "Audi A6", price: "₹18,000*" },
+    ],
+  },
+  {
+    title: "Luxury & Premium Family Cars",
+    vehicles: [
+      { name: "Toyota Vellfire", price: "₹55,000*" },
+      { name: "Kia Carnival", price: "₹11,000*" },
+      { name: "Toyota Camry Hybrid", price: "₹13,000*" },
+      { name: "Toyota Fortuner", price: "₹13,000*" },
+      { name: "Innova Hycross", price: "₹7,500*" },
+      { name: "Innova Crysta", price: "₹6,500*" },
+      { name: "MG Hector", price: "₹6,500*" },
+      { name: "Kia Seltos", price: "₹6,500*" },
+      { name: "Maruti Ciaz", price: "₹6,500*" },
+      { name: "Maruti Dzire", price: "₹5,000*" },
+    ],
+  },
+  {
+    title: "Traveller",
+    vehicles: [{ name: "Force Urbania", price: "Price on Request" }],
+  },
+] as const;
