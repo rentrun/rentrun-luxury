@@ -20,6 +20,13 @@ export const metadata: Metadata = {
     "Luxury car rental with chauffeur, premium charter arrangements and curated cruise experiences for executive travel, weddings, VIP transport and private groups.",
   applicationName: "RentRun Luxury",
   authors: [{ name: "RentRun Travel Company" }],
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" }],
+  },
   openGraph: {
     siteName: "RentRun Luxury",
     locale: "en_IN",
