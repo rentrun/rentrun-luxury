@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { EnquiryForm } from "@/components/enquiry-form";
 import { PageHero } from "@/components/page-hero";
 import { SiteFooter } from "@/components/site-footer";
@@ -17,9 +18,10 @@ type ServiceLandingPageProps = {
   relatedLinks?: { href: string; label: string }[];
   breadcrumbs?: { name: string; href?: string }[];
   faqItems?: FaqItem[];
+  children?: ReactNode;
 };
 
-export function ServiceLandingPage({ eyebrow, title, description, image, services, cta, relatedLinks, breadcrumbs, faqItems }: ServiceLandingPageProps) {
+export function ServiceLandingPage({ eyebrow, title, description, image, services, cta, relatedLinks, breadcrumbs, faqItems, children }: ServiceLandingPageProps) {
   return (
     <>
       <SiteHeader />
@@ -48,6 +50,7 @@ export function ServiceLandingPage({ eyebrow, title, description, image, service
             </nav>
           ) : null}
         </section>
+        {children}
         {faqItems?.length ? <FaqSection items={faqItems} /> : null}
         <section id="enquiry" className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
           <EnquiryForm />
